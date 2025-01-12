@@ -20,6 +20,8 @@ import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.core.cluster.AbstractMemberLookup;
 import com.alibaba.nacos.core.cluster.MemberUtil;
 import com.alibaba.nacos.sys.env.EnvUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collections;
 
@@ -29,9 +31,12 @@ import java.util.Collections;
  * @author <a href="mailto:liaochuntao@live.com">liaochuntao</a>
  */
 public class StandaloneMemberLookup extends AbstractMemberLookup {
+
+    private static final Logger logger = LoggerFactory.getLogger(StandaloneMemberLookup.class);
     
     @Override
     public void doStart() {
+        logger.info("[wanfeng-develop] doStart with Standalone Mode");
         String url = EnvUtil.getLocalAddress();
         afterLookup(MemberUtil.readServerConf(Collections.singletonList(url)));
     }

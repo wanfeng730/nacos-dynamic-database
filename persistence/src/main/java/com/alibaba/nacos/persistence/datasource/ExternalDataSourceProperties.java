@@ -34,14 +34,20 @@ import static com.alibaba.nacos.common.utils.CollectionUtils.getOrDefault;
  * Properties of external DataSource.
  *
  * @author Nacos
+ *
+ * @description: Use the properties to Connect and use external database
  */
 public class ExternalDataSourceProperties {
     
-    private static final String JDBC_DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+    private static final String JDBC_DRIVER_NAME_MYSQL = "com.mysql.cj.jdbc.Driver";
+
+    private static final String JDBC_DRIVER_NAME_POSTGRESQL = "org.postgresql.Driver";
     
     private static final String TEST_QUERY = "SELECT 1";
     
     private Integer num;
+
+    private String jdbcDriverName;
     
     private List<String> url = new ArrayList<>();
     
@@ -52,7 +58,15 @@ public class ExternalDataSourceProperties {
     public void setNum(Integer num) {
         this.num = num;
     }
-    
+
+    public void setJdbcDriverName(String jdbcDriverName) {
+        this.jdbcDriverName = jdbcDriverName;
+        //默认使用mysql驱动
+        if (StringUtils.isBlank(jdbcDriverName)) {
+            this.jdbcDriverName = JDBC_DRIVER_NAME_MYSQL;
+        }
+    }
+
     public void setUrl(List<String> url) {
         this.url = url;
     }
@@ -75,6 +89,7 @@ public class ExternalDataSourceProperties {
     List<HikariDataSource> build(Environment environment, Callback<HikariDataSource> callback) {
         List<HikariDataSource> dataSources = new ArrayList<>();
         Binder.get(environment).bind("db", Bindable.ofInstance(this));
+
         Preconditions.checkArgument(Objects.nonNull(num), "db.num is null");
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(user), "db.user or db.user.[index] is null");
         Preconditions.checkArgument(CollectionUtils.isNotEmpty(password), "db.password or db.password.[index] is null");
@@ -83,7 +98,7 @@ public class ExternalDataSourceProperties {
             Preconditions.checkArgument(url.size() >= currentSize, "db.url.%s is null", index);
             DataSourcePoolProperties poolProperties = DataSourcePoolProperties.build(environment);
             if (StringUtils.isEmpty(poolProperties.getDataSource().getDriverClassName())) {
-                poolProperties.setDriverClassName(JDBC_DRIVER_NAME);
+                poolProperties.setDriverClassName(jdbcDriverName);
             }
             poolProperties.setJdbcUrl(url.get(index).trim());
             poolProperties.setUsername(getOrDefault(user, index, user.get(0)).trim());
