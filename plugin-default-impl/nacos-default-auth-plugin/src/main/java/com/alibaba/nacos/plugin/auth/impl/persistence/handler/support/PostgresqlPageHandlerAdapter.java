@@ -1,6 +1,5 @@
 package com.alibaba.nacos.plugin.auth.impl.persistence.handler.support;
 
-
 import com.alibaba.nacos.persistence.constants.PersistenceConstant;
 import com.alibaba.nacos.plugin.auth.impl.constant.AuthPageConstant;
 import com.alibaba.nacos.plugin.auth.impl.model.OffsetFetchResult;
@@ -13,14 +12,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * PostgresqlPageHandlerAdapter.
  * @date: 2025-01-12 12:52
  * @author: luozh.wanfeng
- * @description:
- * @since:
  */
 public class PostgresqlPageHandlerAdapter implements PageHandlerAdapter {
 
-    private static final Logger logger = LoggerFactory.getLogger(PostgresqlPageHandlerAdapter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PostgresqlPageHandlerAdapter.class);
 
     /**
      * Determine whether the current data source supports paging.
@@ -30,7 +28,7 @@ public class PostgresqlPageHandlerAdapter implements PageHandlerAdapter {
      */
     @Override
     public boolean supports(String dataSourceType) {
-        logger.info("[wanfeng-develop] try to match dataSourceType Postgresql, dataSourceType={}", dataSourceType);
+        LOGGER.info("[wanfeng-develop] try to match dataSourceType Postgresql, dataSourceType={}", dataSourceType);
         return PersistenceConstant.POSTGRESQL.equals(dataSourceType);
     }
 
@@ -45,7 +43,7 @@ public class PostgresqlPageHandlerAdapter implements PageHandlerAdapter {
      */
     @Override
     public OffsetFetchResult addOffsetAndFetchNext(String fetchSql, Object[] arg, int pageNo, int pageSize) {
-        if(fetchSql.contains(AuthPageConstant.LIMIT)){
+        if (fetchSql.contains(AuthPageConstant.LIMIT)) {
             return new OffsetFetchResult(fetchSql, arg);
         }
         //如果执行sql中没有分页语句，拼接postgresql分页语句

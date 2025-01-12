@@ -32,11 +32,11 @@ import java.util.Collections;
  */
 public class StandaloneMemberLookup extends AbstractMemberLookup {
 
-    private static final Logger logger = LoggerFactory.getLogger(StandaloneMemberLookup.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(StandaloneMemberLookup.class);
     
     @Override
     public void doStart() {
-        logger.info("[wanfeng-develop] doStart with Standalone Mode");
+        LOGGER.info("[wanfeng-develop] doStart with Standalone Mode");
         String url = EnvUtil.getLocalAddress();
         afterLookup(MemberUtil.readServerConf(Collections.singletonList(url)));
     }
