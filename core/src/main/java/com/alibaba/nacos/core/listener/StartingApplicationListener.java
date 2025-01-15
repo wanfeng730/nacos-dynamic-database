@@ -97,13 +97,14 @@ public class StartingApplicationListener implements NacosApplicationListener {
     public void starting() {
         starting = true;
     }
-    
+
     @Override
     public void environmentPrepared(ConfigurableEnvironment environment) {
+        //初始化目录
         makeWorkDir();
-        
+        // 注入SpringBoot初始化的环境变量
         injectEnvironment(environment);
-        
+        //加载自定义的环境变量配置
         loadPreProperties(environment);
         
         initSystemProperty();
