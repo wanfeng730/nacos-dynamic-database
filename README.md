@@ -6,6 +6,11 @@
 [![Gitter](https://badges.gitter.im/alibaba/nacos.svg)](https://gitter.im/alibaba/nacos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)   [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Gitter](https://travis-ci.org/alibaba/nacos.svg?branch=master)](https://travis-ci.org/alibaba/nacos)
 [![](https://img.shields.io/badge/Nacos-Check%20Your%20Contribution-orange)](https://opensource.alibaba.com/contribution_leaderboard/details?projectValue=nacos)
+-------
+## Special statement
+This project is fork from version 2.3.0 of the Alibaba Nacos project → https://github.com/alibaba/nacos
+
+For personal learning purposes only, please do not use for commercial purposes!
 
 -------
 ## Extend PostgreSQL Database Type From Me
@@ -49,105 +54,4 @@ Nacos provides four major functions.
 * **Service and MetaData Management**
 	
     Nacos provides an easy-to-use service dashboard to help you manage your services metadata, configuration, kubernetes DNS, service health and metrics statistics.
- 
-
-## Quick Start
-It is super easy to get started with your first project.
-
-### Deploying Nacos on cloud
-
-You can deploy Nacos on cloud, which is the easiest and most convenient way to start Nacos. 
-
-Use the following [Nacos deployment guide](https://cn.aliyun.com/product/aliware/mse?spm=nacos-website.topbar.0.0.0) to see more information and deploy a stable and out-of-the-box Nacos server.
-
-
-### Start by the provided startup package
-
-#### Step 1: Download the binary package 
-
-You can download the package from the [latest stable release](https://github.com/alibaba/nacos/releases).  
-
-Take release `nacos-server-1.0.0.zip` for example:
-```sh
-unzip nacos-server-1.0.0.zip
-cd nacos/bin 
-``` 
-
-#### Step 2: Start Server
-
-On the **Linux/Unix/Mac** platform, run the following command to start server with standalone mode: 
-```sh
-sh startup.sh -m standalone
-```
-
-On the **Windows** platform, run the following command to start server with standalone mode.  Alternatively, you can also double-click the `startup.cmd` to run NacosServer.
-```
-startup.cmd -m standalone
-```
-
-For more details, see [quick-start.](https://nacos.io/en-us/docs/quick-start.html)
-
-## Quick start for other open-source projects:
-* [Quick start with Nacos command and console](https://nacos.io/en-us/docs/quick-start.html)
-
-* [Quick start with dubbo](https://nacos.io/en-us/docs/use-nacos-with-dubbo.html)
-
-* [Quick start with spring cloud](https://nacos.io/en-us/docs/quick-start-spring-cloud.html)
-
-* [Quick start with kubernetes](https://nacos.io/en-us/docs/use-nacos-with-kubernetes.html)
-
-
-## Documentation
-
-You can view the full documentation from the [Nacos website](https://nacos.io/en-us/docs/v2/what-is-nacos.html).
-
-You can also read this online eBook from the [NACOS ARCHITECTURE & PRINCIPLES](https://www.yuque.com/nacos/ebook/kbyo6n).
-
-All the latest and long-term notice can also be found here from [Github notice issue](https://github.com/alibaba/nacos/labels/notice).
-
-## Contributing
-
-Contributors are welcomed to join Nacos project. Please check [CONTRIBUTING](./CONTRIBUTING.md) about how to contribute to this project.
-
-### How can I contribute?
-
-* Take a look at issues with tags marked [`good first issue`](https://github.com/alibaba/nacos/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) or [`contribution welcome`](https://github.com/alibaba/nacos/issues?q=is%3Aopen+is%3Aissue+label%3A%22contribution+welcome%22).
-* Answer questions on [issues](https://github.com/alibaba/nacos/issues).
-* Fix bugs reported on [issues](https://github.com/alibaba/nacos/issues), and send us a pull request.
-* Review the existing [pull request](https://github.com/alibaba/nacos/pulls).
-* Improve the [website](https://github.com/nacos-group/nacos-group.github.io), typically we need
-  * blog post
-  * translation on documentation
-  * use cases around the integration of Nacos in enterprise systems.
-
-## Other Related Project Repositories
-
-* [nacos-spring-project](https://github.com/nacos-group/nacos-spring-project) provides the integration functionality for Spring.
-* [nacos-group](https://github.com/nacos-group) is the repository that hosts the eco tools for Nacos, such as SDK, synchronization tool, etc.
-* [spring-cloud-alibaba](https://github.com/spring-cloud-incubator/spring-cloud-alibaba) provides the one-stop solution for application development over Alibaba middleware which includes Nacos.
-
-## Contact
-
-* [Gitter](https://gitter.im/alibaba/nacos): Nacos's IM tool for community messaging, collaboration and discovery.
-* [Twitter](https://twitter.com/nacos2): Follow along for latest nacos news on Twitter.
-* [Weibo](https://weibo.com/u/6574374908): Follow along for latest nacos news on Weibo (Twitter of China version).
-* [Nacos Segmentfault](https://segmentfault.com/t/nacos): Get latest notice and prompt help from Segmentfault.
-* Email Group:
-     * users-nacos@googlegroups.com: Nacos usage general discussion.
-     * dev-nacos@googlegroups.com: Nacos developer discussion (APIs, feature design, etc).
-     * commits-nacos@googlegroups.com: Commits notice, very high frequency.
-* Join us from DingDing(Group 1: 21708933(full), Group 2: 30438813(full), Group 3: 31222241(full), Group 4: 12810027056). 
-
- ![Nacos](https://img.alicdn.com/imgextra/i1/O1CN01ULSVXu1DRbANwVC6r_!!6000000000213-2-tps-666-884.png)
-
-## Enterprise Service
-If you need Nacos enterprise service support, or purchase cloud product services, you can join the discussion by scanning the following DingTalk group. It can also be directly activated and used through the microservice engine (MSE) provided by Alibaba Cloud.
-https://cn.aliyun.com/product/aliware/mse?spm=nacos-website.topbar.0.0.0
-
-![image](https://user-images.githubusercontent.com/17695352/128659442-65b030b8-c5f4-4bb7-baa2-e5b3ef0cbc15.png)
-
-## Download
-
-- [Github Release](https://github.com/alibaba/nacos/releases)
-- [Baidu Netdisk](https://pan.baidu.com/s/1186nmlqPGows9gUZKAx8Zw) Fetch Code : `rest`
 
