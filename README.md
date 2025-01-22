@@ -29,6 +29,10 @@ db.user=username
 db.password=password
 ```
 
+## Deploy nacos-dynamic-database to docker
+
+Dockerfile and other config files in `docker-build` folder, please use it to build docker image.
+
 -------
 
 ## What does it do
